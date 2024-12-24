@@ -18,6 +18,55 @@
       transition: background-color 0.5s ease, color 0.5s ease;
        overflow-x: hidden;
     }
+    /* Center align the brand name in the navbar */
+.navbar .navbar-brand {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Georgia', serif; /* Choose an elegant font like Georgia */
+  font-size: 1.8rem; /* Adjust size for a professional look */
+  font-weight: bold;
+  color: #343a40; /* Dark gray for an official appearance */
+  text-transform: capitalize;
+}
+
+/* Adjust for mobile view - Center the brand */
+@media (max-width: 768px) {
+  .navbar .navbar-brand {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* General navbar styling */
+.navbar {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+  background-color: #f8f9fa; /* Light background color */
+}
+
+/* Navbar link styles */
+.navbar-nav .nav-link {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #007bff; /* Bootstrap blue for links */
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #0056b3; /* Darker blue on hover */
+}
+
+/* Style for the toggle button (light/dark mode) */
+.navbar-nav #mode-toggle {
+  font-size: 1.2rem;
+  color: #ffcc00; /* Sun icon color for light mode */
+  transition: color 0.3s ease;
+}
+
+.navbar-nav #mode-toggle:hover {
+  color: #ff9900; /* Hover effect for the sun icon */
+}
+
     .bottom-nav {
             position: fixed;
             bottom: 0;
