@@ -395,6 +395,106 @@
 <img src = "loading-animation.gif" style = "height:300px;width:700px;">
 </br></br></br>
 </div>
+
+   <style>
+        .counter {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .counter-container {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            margin: 10px;
+            position: relative;
+        }
+        .counter-title {
+            font-size: 1.2rem;
+            color: #333;
+        }
+        .percentage {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #28a745;
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+        }
+    </style>
+    <div class="container py-5">
+        <div class="row justify-content-center" id="counter-section">
+            <!-- Counter 1 -->
+            <div class="col-md-3 counter-container">
+                <div class="counter" id="counter1">0</div><span class="percentage" id="percentage1">++</span>
+                <div class="counter-title">Tests available</div>
+            </div>
+
+            <!-- Counter 2 -->
+            <div class="col-md-3 counter-container">
+                <div class="counter" id="counter2">0</div><span class="percentage" id="percentage2">++</span>
+                <div class="counter-title">Users</div>
+            </div>
+
+            <!-- Counter 3 -->
+            <div class="col-md-3 counter-container">
+                <div class="counter" id="counter3">0</div><span class="percentage" id="percentage3">++</span>
+                <div class="counter-title">Learings</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function animateCounter(id, start, end, duration) {
+            const counter = document.getElementById(id);
+            let current = start;
+            const increment = (end - start) / (duration / 50);
+
+            const updateCounter = () => {
+                current += increment;
+                if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
+                    counter.textContent = Math.round(end);
+                } else {
+                    counter.textContent = Math.round(current);
+                    requestAnimationFrame(updateCounter);
+                }
+            };
+
+            updateCounter();
+        }
+
+        function startCounters() {
+            animateCounter("counter1", 0, 30, 2000); // Counter 1: From 0 to 150 in 2 seconds
+            animateCounter("counter2", 50, 300, 2500); // Counter 2: From 50 to 300 in 2.5 seconds
+            animateCounter("counter3", 10, 100, 1500); // Counter 3: From 10 to 50 in 1.5 seconds
+        }
+
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        let countersStarted = false;
+        document.addEventListener("scroll", () => {
+            const counterSection = document.getElementById("counter-section");
+            if (isElementInViewport(counterSection) && !countersStarted) {
+                countersStarted = true;
+                startCounters();
+            }
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <!-- Container for keyboard types -->
     <div class="container py-5">
         <h1  style = "color:blue;">Some knowledge on keyboards</h1>
