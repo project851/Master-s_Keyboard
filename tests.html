@@ -14,6 +14,7 @@
             background:white;
             font-family: 'Product Sans', sans-serif;
             color:white;
+             overflow-x: hidden;
         }
         .container {
             max-width: 1100px;
@@ -104,6 +105,7 @@
             gap: 10px;
             justify-content: center;
             margin-bottom: 15px;
+             overflow-x: hidden;
         }
         .alphabet-box {
             background:rgb(9, 9, 9);
@@ -481,8 +483,8 @@
     }
 </style>
 
-<div style = "justify-content:center;display:flex;">
-        <img src = "./loading-animation.gif" style = "height:300px;width:;border-radius:20px;">
+<div style = "justify-content:center;display:flex; overflow-x: hidden;">
+        <img src = "./loading-animation.gif" style = "height:300px;width:auto;border-radius:20px;">
         </div>
 
     <!-- Finger Placement Section -->
@@ -605,10 +607,10 @@
 
 
     <!-- Learning Board Section -->
-    <div class="learning-board" id="inputField">
+    <div class="learning-board" id="inputField" style = " overflow-x: hidden;">
         <h3>Learning Board:</h3>
         
-        <div class="typing-section">
+        <div class="typing-section" style = " overflow-x: hidden;">
             <div class="alphabet-container" id="alphabet1"></div>
             <div class="typing-row" id="row1">asdfgf ;lkjhj </div>
             <div class="input-row-wrapper">
